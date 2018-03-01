@@ -2,6 +2,7 @@
  * Created by nwu on 2/25/18.
  */
 import {StyleSheet} from 'aphrodite';
+import {welcomeFont} from '../fonts';
 
 const rotateKeyFrames = {
   '0%' : {
@@ -10,10 +11,6 @@ const rotateKeyFrames = {
   '100%' : {
     transform: 'rotate(360deg)'
   }
-};
-
-const welcomeFont = {
-  fontFamily: "Barlow"
 };
 
 const style = StyleSheet.create({

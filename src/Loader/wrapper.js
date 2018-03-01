@@ -16,6 +16,7 @@ class LoadingWrapper extends Component {
       welcome: false
     };
     this.loaderHidden = this.loaderHidden.bind(this);
+    this.finishLoading = this.finishLoading.bind(this);
   }
 
   loaderHidden() {
@@ -24,14 +25,19 @@ class LoadingWrapper extends Component {
       setTimeout(() => {
         this.setState({welcome: false});
         setTimeout(() => {
-          this.setState({show: false})
+          this.setState({show: false});
         }, 1000)
       }, 1500);
     } else {
-      this.setState({show: false})
+      this.setState({show: false});
     }
   }
 
+  finishLoading() {
+    if (!this.state.show) {
+      this.props.finish()
+    }
+  }
 
   render() {
     let styleSet = [];
@@ -44,7 +50,7 @@ class LoadingWrapper extends Component {
 
     return (
       <TransitionMotion styles={styleSet} willLeave={() => ({opacity: spring(0)})}
-                        willEnter={()=>({opacity: 0})}>
+                        willEnter={()=>({opacity: 0})} didLeave={this.finishLoading}>
         { styles => (
           <div>
             { styles.map(config => (
@@ -64,7 +70,8 @@ class LoadingWrapper extends Component {
 
 LoadingWrapper.propTypes = {
   show: PropTypes.bool,
-  welcome: PropTypes.bool
+  welcome: PropTypes.bool,
+  finish: PropTypes.func
 };
 
 export default LoadingWrapper
