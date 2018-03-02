@@ -25,17 +25,19 @@ class Border extends Component {
                        ))}>
         {interpolatedStyles => (
           <div className={css(style.box)}>
-            {interpolatedStyles.map((iStyle, idx)=>(
-              <span key={idx} style={
-                this.props.mobile ? {
-                  width: iStyle.progress.toString()+"%",
-                  marginBottom: -2*(idx+1)
-                } : {
-                  height: iStyle.progress.toString()+"%",
-                  marginRight: -2*(idx+1)
-                }
-              } className={css(style.bar, this.props.mobile ? style.mobileBar : style.defaultBar)}/>
-            ))}
+            {interpolatedStyles.map((iStyle, idx)=> {
+              return (
+                <span key={idx} style={
+                  this.props.mobile ? {
+                    width: iStyle.progress.toString() + "%",
+                    marginBottom: -2 * (idx + 1)
+                  } : {
+                    height: iStyle.progress.toString() + "%",
+                    marginRight: -2 * (idx + 1)
+                  }
+                } className={css(style.bar, this.props.mobile ? style.mobileBar : style.defaultBar)}/>
+              );
+            })}
           </div>
         )}
       </StaggeredMotion>
@@ -44,7 +46,7 @@ class Border extends Component {
 }
 
 Border.propTypes = {
-  mobile: PropTypes.bool,
+  mobile: PropTypes.bool
 };
 
 export default Border;

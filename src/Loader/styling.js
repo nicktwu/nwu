@@ -52,18 +52,23 @@ const style = StyleSheet.create({
   },
   loader1 : {
     borderTopColor: "#ffffff",
+    borderBottomColor: "#ffffff"
   },
   loader2 : {
     borderTopColor: "#cccccc",
+    borderBottomColor: "#cccccc"
   },
   loader3 : {
     borderTopColor: "#999999",
+    borderBottomColor: "#999999"
   },
   loader4 : {
     borderTopColor: "#666666",
+    borderBottomColor: "#666666"
   },
   loader5: {
-    borderTopColor: "#333333"
+    borderTopColor: "#333333",
+    borderBottomColor: "#333333"
   },
   wrapper: {
     position: "fixed",

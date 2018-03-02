@@ -14,13 +14,29 @@ const defaultStyle = {
 };
 
 class Banner extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      reveal: false,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.show) {
+      setTimeout(()=>{
+        this.setState({reveal: true});
+        setTimeout(this.props.triggerNext, 1000);
+      }, 1000)
+    }
+  }
+
   render() {
     return (
       <Media maxWidth={767}>
         {(mobile) => (
           <div className={css(style.banner, mobile ? style.mobileBanner : style.defaultBanner)}>
             <TransitionMotion styles={
-              this.props.show ? [defaultStyle] : []
+              this.state.reveal ? [defaultStyle] : []
             } willEnter={() => ({opacity: 0})}>
               {interpolatedStyles => (
                 <div className={css(style.box)}>
@@ -42,7 +58,8 @@ class Banner extends Component {
 }
 
 Banner.propTypes = {
-  show: PropTypes.bool
+  show: PropTypes.bool,
+  triggerNext: PropTypes.func
 };
 
 export default Banner

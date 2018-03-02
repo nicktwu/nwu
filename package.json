@@ -6,6 +6,7 @@
     "aphrodite": "^1.2.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-anime": "^2.1.0",
     "react-dom": "^16.2.0",
     "react-images-preload": "^1.0.3",
     "react-load-image": "^0.1.6",

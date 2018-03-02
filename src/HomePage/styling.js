@@ -16,7 +16,6 @@ const style = StyleSheet.create({
     left: "0px",
     right: "0px",
     bottom: "0px",
-    borderRadius: "50%"
   },
   banner : {
     position: "absolute",
@@ -33,13 +32,13 @@ const style = StyleSheet.create({
   },
   defaultBanner: {
     height: "100%",
-    width: "50%",
+    width: "calc(50% - 5px)",
     marginRight: "10px"
   },
   bar: {
     display: "block",
     position: "absolute",
-    border: "1px solid black"
+    border: "1px solid black",
   },
   mobileBar: {
     bottom: 0,
@@ -55,6 +54,42 @@ const style = StyleSheet.create({
     lineHeight: "60px",
     fontFamily: [headerFont, "sans-serif"],
     fontSize: "40px"
+  },
+  container : {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    position: "absolute",
+    padding: "30px 30px 30px 30px",
+    textAlign: "center",
+    flexDirection: "column"
+  },
+  mobileContainer: {
+    width: "calc(100% - 60px)",
+    top: "210px",
+    height: "calc(100% - 270px)"
+  },
+  defaultContainer: {
+    width: "calc(50% - 65px)",
+    height: "calc(100% - 60px)",
+    right: 0,
+    top: 0
+  },
+  linkBox: {
+    margin: "35px 35px 35px 35px"
+  },
+  link: {
+    fontFamily: [headerFont, "sans-serif"],
+    lineHeight: "60px",
+    textAlign: "center",
+    display: "block",
+    textDecoration: "none",
+    color: "black",
+    border: "2px solid black",
+    position: "relative"
+  },
+  linkBoxHover: {
+
   }
 });
 

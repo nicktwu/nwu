@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 import Loader from './Loader';
 import WebFont from 'webfontloader';
 import {Switch, Route} from 'react-router-dom';
-import HomePage from './HomePage';
 import {fontList} from './fonts';
 import images from './images';
 import {withImagesPromise} from 'react-images-preload';
+import {mainPaths} from "./Router";
 
 class App extends Component {
   constructor(props) {
@@ -39,9 +39,14 @@ class App extends Component {
       <div>
         <Loader show={this.state.loading || !this.props.isImagesLoaded} welcome={true} finish={this.hideLoader}/>
         <Switch>
-          <Route exact path="/">
-            <HomePage images={this.props.images} loading={!this.state.loaderHidden}/>
-          </Route>
+          { mainPaths.map((route, idx) => {
+            let Comp = route.component;
+            return (
+              <Route key={idx} exact={route.exact} path={route.path}>
+                { Comp ? <Comp images={this.props.images} loading={!this.state.loaderHidden} /> : null}
+              </Route>
+            )
+          })}
         </Switch>
       </div>
     );
