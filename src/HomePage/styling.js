@@ -38,7 +38,6 @@ const style = StyleSheet.create({
   bar: {
     display: "block",
     position: "absolute",
-    border: "1px solid black",
   },
   mobileBar: {
     bottom: 0,
@@ -47,7 +46,6 @@ const style = StyleSheet.create({
     right: 0
   },
   titleText: {
-    display: "block",
     position: "relative",
     top: "50%",
     marginTop: "-30px",
@@ -76,20 +74,16 @@ const style = StyleSheet.create({
     top: 0
   },
   linkBox: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
     margin: "35px 35px 35px 35px"
   },
   link: {
     fontFamily: [headerFont, "sans-serif"],
-    lineHeight: "60px",
     textAlign: "center",
-    display: "block",
     textDecoration: "none",
-    color: "black",
-    border: "2px solid black",
     position: "relative"
-  },
-  linkBoxHover: {
-
   }
 });
 

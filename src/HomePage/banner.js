@@ -1,63 +1,37 @@
 import React, {Component} from 'react';
-import Media from 'react-responsive';
 import style from './styling';
 import {css} from 'aphrodite';
 import PropTypes from 'prop-types';
-import {TransitionMotion, spring} from 'react-motion';
 import Border from './border';
-
-const defaultStyle = {
-  key: "default",
-  style: {
-    opacity: spring(1)
-  }
-};
+import Name from "./name";
 
 class Banner extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      reveal: false,
+      reveal: false
     };
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.show) {
-      setTimeout(()=>{
-        this.setState({reveal: true});
-        setTimeout(this.props.triggerNext, 1000);
-      }, 1000)
-    }
-  }
-
   render() {
+    let mobile = this.props.mobile;
     return (
-      <Media maxWidth={767}>
-        {(mobile) => (
-          <div className={css(style.banner, mobile ? style.mobileBanner : style.defaultBanner)}>
-            <TransitionMotion styles={
-              this.state.reveal ? [defaultStyle] : []
-            } willEnter={() => ({opacity: 0})}>
-              {interpolatedStyles => (
-                <div className={css(style.box)}>
-                  {
-                    interpolatedStyles.map((config) => (
-                      <h1 key={config.key} style={config.style}
-                          className={css(style.titleText)}>nicholas wu</h1>
-                    ))
-                  }
-                </div>
-              )}
-            </TransitionMotion>
-            <Border show={this.props.show} mobile={mobile}/>
-          </div>
-        )}
-      </Media>
+      <div className={css(style.banner, mobile ? style.mobileBanner : style.defaultBanner)}>
+        <div className={css(style.box)}>
+          <Name show={this.state.reveal && mobile && (this.state.mobile === mobile)} complete={this.props.triggerNext}/>
+          <Name show={this.state.reveal && !mobile && (this.state.mobile === mobile)}
+                complete={this.props.triggerNext}/>
+        </div>
+        <Border show={this.props.show} mobile={mobile} complete={() => {
+          this.setState({reveal: true, mobile: mobile})
+        }}/>
+      </div>
     )
   }
 }
 
 Banner.propTypes = {
+  mobile: PropTypes.bool,
   show: PropTypes.bool,
   triggerNext: PropTypes.func
 };

@@ -1,20 +1,17 @@
-import React from 'react';
-import HomePage from '../HomePage'
+import HomePage from '../HomePage';
+import AboutPage from '../AboutPage';
 
 let mainPaths = [
   {
     name: "home",
     exact: true,
     path: "/",
-    component: (props) => (<HomePage images={props.images} loading={props.loading} />)
+    component: HomePage
   },
   {
     name: "about",
     path: "/about",
-  },
-  {
-    name: "blog",
-    path: "/blog"
+    component: AboutPage
   }
 ];
 
