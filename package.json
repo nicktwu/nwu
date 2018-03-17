@@ -1,6 +1,6 @@
 {
   "name": "nwu",
-  "version": "0.1.0",
+  "version": "1.5.1",
   "private": true,
   "dependencies": {
     "animejs": "^2.2.0",
@@ -16,6 +16,7 @@
     "react-router-dom": "^4.2.2",
     "react-scripts": "1.1.1",
     "react-transition-group": "^2.2.1",
+    "react-waypoint": "^8.0.1",
     "webfontloader": "^1.6.28"
   },
   "scripts": {

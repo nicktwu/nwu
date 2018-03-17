@@ -1,25 +1,24 @@
-/**
- * Created by nwu on 2/28/18.
- */
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import Media from 'react-responsive';
-import Content from "./container";
+import Carousel from "./carousel";
+import style from './styling';
+import {css} from 'aphrodite';
 
-class Wrapper extends Component {
+class HomePage extends Component {
   render() {
     return (
-      <Media maxWidth={767}>
-        {(mobile) => (
-          <Content mobile={mobile} show={this.props.show} />
-        )}
-      </Media>
+      <span>
+        <div className={css(style.block)}>
+          <Carousel images={this.props.images} show={this.props.show}/>
+        </div>
+      </span>
     )
   }
 }
 
-Wrapper.propTypes = {
+HomePage.propTypes = {
+  images: PropTypes.object,
   show: PropTypes.bool
 };
 
-export default Wrapper;
+export default HomePage;
