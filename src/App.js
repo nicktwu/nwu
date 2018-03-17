@@ -3,7 +3,7 @@ import Loader from './Loader';
 import WebFont from 'webfontloader';
 import {Switch, Route} from 'react-router-dom';
 import {fontList} from './fonts';
-import images from './images';
+import {allImages} from './images';
 import {withImagesPromise} from 'react-images-preload';
 import {mainPaths} from "./Router";
 import {CSSTransition, TransitionGroup} from "react-transition-group";
@@ -86,4 +86,4 @@ class App extends Component {
   }
 }
 
-export default withImagesPromise(images, App);
+export default withImagesPromise(allImages, App);

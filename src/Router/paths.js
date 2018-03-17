@@ -1,5 +1,4 @@
 import HomePage from '../HomePage';
-import AboutPage from '../AboutPage';
 
 let mainPaths = [
   {
@@ -7,11 +6,6 @@ let mainPaths = [
     exact: true,
     path: "/",
     component: HomePage
-  },
-  {
-    name: "about",
-    path: "/about",
-    component: AboutPage
   }
 ];
 
