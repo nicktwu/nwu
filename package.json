@@ -7,8 +7,6 @@
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-images-preload": "^1.0.3",
-    "react-load-image": "^0.1.6",
     "react-motion": "^0.5.2",
     "react-responsive": "^4.0.4",
     "react-router": "^4.2.0",
