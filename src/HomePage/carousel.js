@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {backgrounds} from '../images';
-import Media from 'react-responsive';
+import {backgrounds, mobileBackgrounds} from '../images';
 import {TransitionMotion, spring} from "react-motion";
 import style from "./styling";
 import {css} from "aphrodite";
@@ -24,17 +23,21 @@ class Carousel extends Component {
   }
 
   nextImage(evt) {
-    if (evt) { evt.preventDefault(); }
+    if (evt) {
+      evt.preventDefault();
+    }
     this.setState({
-      current: (this.state.current + 1) % backgrounds.length,
+      current: (this.state.current + 1) % this.props.backgrounds.length,
       shiftLeft: true
     })
   }
 
   previousImage(evt) {
-    if (evt) { evt.preventDefault(); }
+    if (evt) {
+      evt.preventDefault();
+    }
     this.setState({
-      current: (this.state.current - 1 + backgrounds.length) % backgrounds.length,
+      current: (this.state.current - 1 + this.props.backgrounds.length) % this.props.backgrounds.length,
       shiftLeft: false
     })
   }
@@ -48,7 +51,7 @@ class Carousel extends Component {
   }
 
   render() {
-    let background = backgrounds.map((background, idx) => ({
+    let background = this.props.backgrounds.map((background, idx) => ({
       key: background.name,
       data: {caption: background.caption},
       style: {
@@ -58,41 +61,50 @@ class Carousel extends Component {
       }
     }));
     return (
-      <Media maxWidth={767}>
-        {(mobile) => {
-          return (
-            <TransitionMotion styles={background}>
-              {(iStyles) => (
-                <div className={css(style.carouselContainer, mobile ? style.mobileCarousel : style.defaultCarousel)}>
-                  {iStyles.map(config => (
-                    <div className={css(style.carouselImageContainer)}>
-                      <img className={css(style.carouselImage)} key={config.key}
-                           src={this.props.images[config.key]} style={{left: config.style.x.toString() + "vw"}}
-                           alt={config.key}/>
-                      <Caption text={config.data.caption} containerOpacity={config.style.caption}
-                               textOpacity={config.style.opacity}/>
-                    </div>
-                  ))}
-                  <div className={css(style.captionTrigger)} onMouseEnter={this.showCaption}
-                       onMouseLeave={this.hideCaption}/>
-                  <CarouselRightArrow size={40} handleClick={this.nextImage}/>
-                  <CarouselLeftArrow size={40} handleClick={this.previousImage}/>
-                  <NavigationDots backgrounds={backgrounds} current={this.state.current} handleClick={(i) => {
-                    this.setState({current: i})
-                  }}/>
-                </div>
-              )}
-            </TransitionMotion>
-          )
-        }}
-      </Media>
+      <TransitionMotion styles={background}>
+        {(iStyles) => (
+          <div className={css(style.carouselContainer)}>
+            {iStyles.map(config => (
+              <div key={config.key} className={css(style.carouselImageContainer)}>
+                <img className={css(style.carouselImage)}
+                     src={this.props.images[config.key]} style={{left: config.style.x.toString() + "vw"}}
+                     alt={config.key}/>
+                <Caption text={config.data.caption} containerOpacity={config.style.caption}
+                         textOpacity={config.style.opacity}/>
+              </div>
+            ))}
+            <div className={css(style.captionTrigger)} onMouseEnter={this.showCaption}
+                 onMouseLeave={this.hideCaption}/>
+            <CarouselRightArrow size={40} handleClick={this.nextImage}/>
+            <CarouselLeftArrow size={40} handleClick={this.previousImage}/>
+            <NavigationDots backgrounds={this.props.backgrounds} current={this.state.current} handleClick={(i) => {
+              this.setState({current: i})
+            }}/>
+          </div>
+        )}
+      </TransitionMotion>
     )
   }
 }
 
 Carousel.propTypes = {
+  backgrounds: PropTypes.array,
   images: PropTypes.object,
   show: PropTypes.bool
 };
 
-export default Carousel;
+class CarouselWrapper extends Component {
+  render() {
+    return <Carousel images={this.props.images} backgrounds={this.props.mobile ? mobileBackgrounds : backgrounds}
+                     show={this.props.show} />
+  }
+}
+
+CarouselWrapper.propTypes = {
+  images: PropTypes.object.isRequired,
+  show: PropTypes.bool.isRequired,
+  mobile: PropTypes.bool.isRequired
+};
+
+
+export default CarouselWrapper;

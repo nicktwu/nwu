@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {css} from "aphrodite";
 import style from './styling';
 import PropTypes from 'prop-types';
-import {Motion, spring} from "react-motion";
 
 class Caption extends Component {
   constructor(props) {

@@ -41,7 +41,7 @@ class Dot extends Component {
                 height: iStyle.size,
                 width: iStyle.size
               }
-            } onMouseEnter={this.startHover} onMouseLeave={this.endHover}/>
+            } onMouseEnter={this.startHover} onMouseLeave={this.endHover}> </a>
           </div>
         )}
       </Motion>

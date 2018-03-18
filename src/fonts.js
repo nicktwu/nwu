@@ -6,8 +6,16 @@ const headerFont = {
   fontFamily: "Cantarell"
 };
 
-const fontList = {
-  families: ["Barlow", "Cantarell"]
+const nameFont = {
+  fontFamily: "Maven Pro"
 };
 
-export {welcomeFont, headerFont, fontList}
+const bodyFont = {
+  fontFamily: "Nunito Sans"
+};
+
+const fontList = {
+  families: ["Barlow", "Cantarell", "Maven Pro", "Nunito Sans"]
+};
+
+export {welcomeFont, headerFont, nameFont, bodyFont, fontList}
