@@ -126,9 +126,15 @@ const style = {
     position: "relative",
     objectFit: "cover",
     objectPosition: "0 50%",
-    height: 200,
-    width: 200,
     zIndex: 1
+  },
+  aboutImageMobile: {
+    height: 100,
+    width: 100,
+  },
+  aboutImageDefault: {
+    height: 200,
+    width: 200
   },
   aboutSubtitle: {
     position: "relative",
@@ -255,6 +261,11 @@ const style = {
   navBarHeaderText: {
     lineHeight: "100%",
     fontFamily: [nameFont, "sans-serif"],
+  },
+  navBarHeaderTextMobile: {
+    fontSize: "1.4rem"
+  },
+  navBarHeaderTextDefault: {
     fontSize: "2rem"
   },
   navLinkContainer: {

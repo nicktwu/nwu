@@ -16,7 +16,8 @@ class AboutBlock extends Component {
               opacity: iStyles[0].x,
               top: (1-iStyles[0].x)*50
             }}>
-              <img src={this.props.images.selfMurakami} className={css(style.aboutImage)} alt={"me"}/>
+              <img src={this.props.images.selfMurakami} alt={"me"}
+                   className={css(style.aboutImage, this.props.mobile ? style.aboutImageMobile : style.aboutImageDefault)}/>
             </div>
             <p style={{
               opacity: iStyles[1].x,

@@ -33,7 +33,7 @@ class NavBar extends Component {
           <div className={css(style.navBar, this.props.mobile ? style.mobileNavBar : style.defaultNavBar)}
                style={iStyle} onMouseEnter={this.startHover} onMouseLeave={this.endHover}>
             <div className={css(style.navBarHeader)}>
-              <h1 className={css(style.navBarHeaderText)}>nicholas wu</h1>
+              <h1 className={css(style.navBarHeaderText, this.props.mobile ? style.navBarHeaderTextMobile : style.navBarHeaderTextDefault)}>nicholas wu</h1>
             </div>
             { this.props.mobile ? <NavTrigger links={this.props.links} scrollTo={this.props.scrollTo}
                                              startHover={this.startHover} endHover={this.endHover}/>
