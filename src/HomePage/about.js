@@ -23,8 +23,9 @@ class AboutBlock extends Component {
               opacity: iStyles[1].x,
               top: (1-iStyles[1].x)*50
             }} className={css(style.aboutSubtitle, this.props.mobile ? style.aboutSubtitleMobile : style.aboutSubtitleDefault)}>
-              Hey, I'm Nick! I'm an undergrad at MIT, double majoring in EECS (electrical engineering and computer
-              science) and pure math, and minoring in physics.
+              Hey, I'm Nick! I graduated from MIT, double majoring in EECS (electrical engineering and computer
+              science) and pure math, and minoring in physics. I'm currently working on my master's in engineering (still at MIT) in computer science,
+              and my thesis is in artificial intelligence and machine learning.
             </p>
             <p className={css(style.aboutCaption)} style={{
               opacity: iStyles[2].x,
