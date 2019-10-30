@@ -6,7 +6,7 @@
     "aphrodite": "^1.2.5",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react-dom": "^16.2.1",
     "react-motion": "^0.5.2",
     "react-responsive": "^4.0.4",
     "react-router": "^4.2.0",
